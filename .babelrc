@@ -1,0 +1,22 @@
+{
+    "presets": [
+        [
+            "env",
+            {
+                "targets": {
+                    "chrome": 56,
+                    "uglify": true
+                },
+                "modules": false,
+                "useBuiltIns": true
+            }
+        ],
+        "react"
+    ],
+    "plugins": [
+        "transform-decorators-legacy",
+        "syntax-class-properties",
+        "transform-class-properties",
+        "transform-object-rest-spread"
+    ]
+}
