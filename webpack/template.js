@@ -40,7 +40,7 @@ module.exports = function ({htmlWebpackPlugin}) {
 
     let js = [
         process.env.NODE_ENV !== 'production'
-            ? 'dll/vendor.dll.js'
+            ? '/dll/vendor.dll.js'
             : files.chunks.vendor.entry,
         files.chunks[title].entry
     ];

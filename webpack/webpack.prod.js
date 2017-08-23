@@ -1,4 +1,3 @@
-
 /**
  * @file webpack development configure
  * @author leon <ludafa@outlook.com>
@@ -47,6 +46,29 @@ module.exports = {
             {
                 test: /\.(eot|woff|ttf|woff2|svg)$/,
                 loader: 'file-loader'
+            },
+            {
+                test: /\.md$/,
+                use: [
+                    {
+                        loader: 'babel-loader'
+                    },
+                    {
+                        loader: 'rct-md-loader',
+                        options: {
+                            // 对 md 中的可运行 demo 进行配置
+                            codeBlock: {
+                                // 可运行 demo 只有一个要求需要返回一个 react 组件，其他的是不限制的。
+                                // 因此为了保证这个 demo 能被正确的转译，可以通过指定它的 loader。
+                                loader: 'babel-loader',
+                                // 可运行 demo 的默认属性
+                                props: {
+                                    className: 'markdown-body'
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         ]
     },

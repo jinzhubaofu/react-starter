@@ -17,6 +17,7 @@
         "transform-decorators-legacy",
         "syntax-class-properties",
         "transform-class-properties",
-        "transform-object-rest-spread"
+        "transform-object-rest-spread",
+        "syntax-dynamic-import"
     ]
 }

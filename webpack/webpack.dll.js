@@ -9,9 +9,14 @@ const pkg = require('../package.json');
 const root = path.join(__dirname, '../dll');
 
 module.exports = {
-    target: 'electron-renderer',
     entry: {
-        vendor: Object.keys(pkg.dependencies)
+        vendor: [
+            ...Object.keys(pkg.dependencies),
+            'react-hot-loader/patch',
+            'react-hot-loader',
+            'webpack-dev-server/client/socket',
+            'webpack-dev-server/client/index.js?http://localhost:9000'
+        ]
     },
     module: {
         rules: [
@@ -32,6 +37,7 @@ module.exports = {
         libraryTarget: 'var'
     },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.DllPlugin({
             path: path.join(root, '[name].json'),
             name: '[name]',
